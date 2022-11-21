@@ -2,18 +2,22 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-from regex import donar, receiver, edges
+from max_match import maxmatch
 
-g = nx.Graph()
+def graph(donar, receiver, edges):
 
-g.add_nodes_from(donar, bipartite=0)
-g.add_nodes_from(receiver, bipartite=1)
+    g = nx.Graph()
 
-g.add_edges_from(edges)
+    g.add_nodes_from(donar, bipartite=0)
+    g.add_nodes_from(receiver, bipartite=1)
 
-print(nx.bipartite.is_bipartite(g))
+    g.add_edges_from(edges)
 
-nx.draw_networkx(g, pos = nx.drawing.layout.bipartite_layout(g, donar), width = 2)
+    print(nx.bipartite.is_bipartite(g))
 
-plt.savefig("initial.png")
-plt.show()
+    nx.draw_networkx(g, pos = nx.drawing.layout.bipartite_layout(g, donar), width = 2)
+
+    # plt.savefig("initial.png")
+    plt.show()
+
+    return maxmatch(g, donar, receiver)

@@ -1,27 +1,34 @@
 
-import networkx as nx
-from networkx.algorithms import bipartite
-import matplotlib.pyplot as plt
+import pandas as pd
 
-from regex import donar, receiver
-from initial_graph import g
+# user = pd.read_csv("UserDetails.csv")
+
+# user["id"] = user["User"] + user["Blood Group"]
+
+# # c = user["Blood Group"].value_counts()
+# # print(c)
+
+# user['id'] = user['id'].str.replace('+','p')
+# user['id'] = user['id'].str.replace('-','n')
+
+# users = user["id"].to_list()
+
+# print(users)
+
+from regex import edgecreate
 
 
-# print(donar)
-# print(receiver)
+def csvtolist(don, rec):
 
+    don["userbd"] = don["UID"] + don["BloodGroup"]
+    don['userbg'] = don['userbg'].str.replace('+','p')
+    don['userbg'] = don['userbg'].str.replace('-','n')
 
-k = list(nx.maximal_matching(g))        # Halls Theorem
-print(k)
+    rec["userbd"] = rec["UID"] + rec["BloodGroup"]
+    rec['userbg'] = rec['userbg'].str.replace('+','p')
+    rec['userbg'] = rec['userbg'].str.replace('-','n')
 
-g2 = nx.Graph()
+    dons = don["id"].to_list()
+    recs = rec["id"].to_list()
 
-g2.add_nodes_from(donar, bipartite=0)
-g2.add_nodes_from(receiver, bipartite=1)
-g2.add_edges_from(k)
-
-nx.draw_networkx(g2, pos = nx.drawing.layout.bipartite_layout(g2, donar), width = 2)
-
-plt.savefig("final.png")
-plt.show()
-
+    return edgecreate(dons, recs)
