@@ -3,7 +3,7 @@ import networkx as nx
 from networkx.algorithms import bipartite
 import matplotlib.pyplot as plt
 
-from initial_graph import g
+# from initial_graph import g
 
 
 def maxmatch(g, donar, receiver):
@@ -21,6 +21,10 @@ def maxmatch(g, donar, receiver):
 
     # plt.savefig("final.png")
     plt.show()
+
+    for i in k:
+        i[0] = i[0][0:28]
+        i[1] = i[1][0:28]
 
     return k
 

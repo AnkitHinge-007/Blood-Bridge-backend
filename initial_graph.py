@@ -2,7 +2,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-from max_match import maxmatch
+# from max_match import maxmatch
 
 def graph(donar, receiver, edges):
 
@@ -20,4 +20,4 @@ def graph(donar, receiver, edges):
     # plt.savefig("initial.png")
     plt.show()
 
-    return maxmatch(g, donar, receiver)
+    return g

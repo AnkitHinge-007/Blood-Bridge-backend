@@ -15,20 +15,20 @@ import pandas as pd
 
 # print(users)
 
-from regex import edgecreate
+# from regex import edgecreate
 
 
 def csvtolist(don, rec):
 
-    don["userbd"] = don["UID"] + don["BloodGroup"]
+    don["userbg"] = don["UID"] + don["BloodGroup"]
     don['userbg'] = don['userbg'].str.replace('+','p')
     don['userbg'] = don['userbg'].str.replace('-','n')
 
-    rec["userbd"] = rec["UID"] + rec["BloodGroup"]
+    rec["userbg"] = rec["UID"] + rec["BloodGroup"]
     rec['userbg'] = rec['userbg'].str.replace('+','p')
     rec['userbg'] = rec['userbg'].str.replace('-','n')
 
-    dons = don["id"].to_list()
-    recs = rec["id"].to_list()
+    dons = don["userbg"].to_list()
+    recs = rec["userbg"].to_list()
 
-    return edgecreate(dons, recs)
+    return dons ,recs

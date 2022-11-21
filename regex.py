@@ -23,7 +23,7 @@ import random
 
 # from list import csvrolist
 
-from initial_graph import graph
+# from initial_graph import graph
 
 def edgecreate(donar, receiver):
 
@@ -84,7 +84,7 @@ def edgecreate(donar, receiver):
             if re.findall('ABn$', i) and re.findall('AB.$', i) :
                 edges.append((i, j))
 
-    return graph(donar, receiver, edges)
+    return edges
 
 # print(donar)
 # print(receiver)
