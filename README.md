@@ -1,2 +1,2 @@
-# Graphs Maximum Mathing Algorithm
+# Graphs Maximum Matching Algorithm
 ## Using Halls Theorem
